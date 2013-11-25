@@ -16,8 +16,9 @@ def searchURLs():
 	listOfURLs = [] 
 	for i in range(0, 999999):
 		url = 'http://android.pdassi.de/' + str(i) + '/'
-		downloadURL = getDownloadURL(url).replace(' ', '%20').replace('amp;', '')
+		downloadURL = getDownloadURL(url)
 		if(downloadURL):
+			downloadURL = downloadURL.replace(' ', '%20').replace('amp;', '')
 			fileName = downloadURL[downloadURL.index('?')+1:].split('.apk')[0]
 			listOfURLs.append(downloadURL)
 			downloadApp(downloadURL, fileName)
