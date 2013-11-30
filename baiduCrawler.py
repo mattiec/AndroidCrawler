@@ -28,14 +28,14 @@ def crawlAndDownload():
 
 #downloads the app description
 def downloadAppDescription(contents, fileName):
-	output = open(fileName + '.txt', 'wb')
+	output = open('/home/sji933/project/baidu/descriptions/' + fileName + '.txt', 'wb')
 	output.write(contents)
 	output.close()
 
 #download the app given the url
 def downloadApp(url, fileName):
 	file = urllib2.urlopen(url)
-	output = open(fileName + '.apk', 'wb')
+	output = open('/home/sji933/project/baidu/apps/' + fileName + '.apk', 'wb')
 	output.write(file.read())
 	output.close()
 
