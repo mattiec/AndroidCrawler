@@ -8,15 +8,14 @@ def getDownloadURLAndDescription(appStoreURL):
 		index = html.index('download_url=\"')
 		downloadURL = html[index:].split('\"')[1]
 		print downloadURL
-		print html[html.index('description'):].split('\"')[2]
-		return [downloadURL, html[html.index('description')].split('\"')[0]]
+		return [downloadURL, html[html.index('description'):].split('\"')[2]]
 	except urllib2.HTTPError:
 		print "Error URL not found"
 		return 0
 
 #crawls the app store and downloads the apps
 def crawlAndDownload():
-	for i in range(4505253, 4505254):
+	for i in range(100000, 9999999):
 		print i
 		url = 'http://as.baidu.com/a/item?docid=' + str(i) + '/'
 		downloadURL = getDownloadURLAndDescription(url)
