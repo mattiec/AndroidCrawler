@@ -47,6 +47,7 @@ for page in range(1, 12):
 		#print the app name and the downloadURL
 		print appName
 		print downloadURL
+		print str(i + (page - 1) * 1000)
 		
 		outputString = outputString + appName + "\n"
 		
@@ -58,7 +59,7 @@ for page in range(1, 12):
 			output.write(file.read())
 			output.close()
 		except:
-			print "Warning the file name was no good and so this application was skipped it."
+			print "Warning: The file name was no good and so this application was not downloaded."
 
 output = open("listOfApps.txt", "wb")
 output.write(outputString)
