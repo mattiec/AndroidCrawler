@@ -6,7 +6,8 @@ path = "/home/sji933/project/operaRus/descriptions/"
 index = 0
 
 # Loop through pages using id number from 1 to 10032 (Number of pages)
-for i in range(1, 10032):
+# Opens that page number of the market
+for i in range(2626, 10032):
 	print "Page number: " + str(i)
 	response = urllib2.urlopen("http://apps.opera.com/ru_ru/free_catalog.php?soft=bestsell&p=" + str(i))
 	pageHTML = response.read()
@@ -14,13 +15,15 @@ for i in range(1, 10032):
 	splitHTMLDownloadLinks = pageHTML.split("<li class=\"appItem\">")
 	downloadLinks = []
 
+	# Obtain each download link individually
 	for string in splitHTMLDownloadLinks:
 		downloadLink = string.split("\" class=\"appLink")[0]
 		downloadLink = downloadLink[downloadLink.index("\"") + 1:]
 		downloadLinks.append(downloadLink)
 
 	downloadLinks = downloadLinks[len(downloadLinks) - 10:len(downloadLinks)]
-
+	
+	# Obtain description
 	for link in downloadLinks:
 		try:
 			print link
